@@ -6,6 +6,9 @@ var node_uuid= require('node-uuid');
 var app      = express();
 var public   = process.cwd() + '/build';
 var postmark = require("postmark");
+var dotenv   = require('dotenv').config()
+
+console.log('postmark: ', process.env.POSTMARK)
 var postmarkEmailClient = new postmark.Client(process.env.POSTMARK);
  
 app.use(morgan('combined'))
@@ -32,7 +35,7 @@ app.get('/api/addJob', (req,res) => {
   let payload = req.query.payload;
   let uuid    = node_uuid.v1();
   let jobInfo = {topic, msg, payload, uuid}
-  agenda.schedule('in 1 minute', 'sendMsg', jobInfo);
+  agenda.schedule('in 1 second', 'sendMsg', jobInfo);
   res.send({data: jobInfo})
 })
 
