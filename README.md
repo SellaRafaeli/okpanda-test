@@ -10,7 +10,7 @@ $ git clone https://github.com/SellaRafaeli/okpanda-test.git
 
 $ cd okpanda-test && npm i 
 
-$ POSTMARK=<your-postmark-token> nodemon server.js #run BE
+$ PORT=3005 POSTMARK=<your-postmark-token> nodemon server.js #run BE on specific port, with specific postmark token.
 
 $ npm start #run FE in dev mod 
 
