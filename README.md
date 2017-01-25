@@ -1,6 +1,6 @@
 Test project for OKPanda by Sella Rafaeli.
 
-<img src='http://imgur.com/a/O9heF'/>
+<img src='http://i.imgur.com/n4PlfvO.png'/>
 
 Tech stack is a React FE (based on 'create-react-app' template), using a BE of Node/ExpressJS and Agenda (based on MongoDB) to schedule background tasks, and Postmark to send emails. 
 
