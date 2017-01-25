@@ -3,11 +3,14 @@ Test project for OKPanda by Sella Rafaeli.
 Tech stack is a React FE (based on 'create-react-app' template), using a BE of Node/ExpressJS and Agenda (based on MongoDB) to schedule background tasks, and Postmark to send emails. 
 
 # Setup 
-Have MongoDB and NodeJS installed in up-to-date versions. 
+
+Prereqs: Have MongoDB and NodeJS installed in up-to-date versions. 
 
 $ git clone https://github.com/SellaRafaeli/okpanda-test.git
 $ cd okpanda-test && npm i
 $ POSTMARK=<your-postmark-token> nodemon server.js 
+
+You may alternatively set your postmark token in .env; also you can run just the FE in dev mode using _npm start_. 
 
 If you don't set your postmark token, app will work but emails will fail to be sent. 
 
