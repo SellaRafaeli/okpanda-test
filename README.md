@@ -22,9 +22,13 @@ You may alternatively set your postmark token in .env; also you can run just the
 
 If you don't set your postmark token, app will work but emails will not be sent. 
 
+# Code
+
+Server is tiny - only server.js and agenda.js. /src has the source client files; /build has the compiled client files. 
+
 # Usage
 
-Browse topics; for each topic you may view or set or delete jobs. Each job has a message and payload (both currently strings) and will be sent by default within 1 minute of creating the job. All emails are currently hard-coded to be sent to and from my (Sella's) emails; you should change these to match your domain in Server.js's _sendEmail_ function. 
+You can browse topics; for each topic you may view or set or delete jobs. Each job has a message and payload (both currently strings) and will be sent by default within 1 minute of creating the job. All emails are currently hard-coded to be sent to and from my (Sella's) emails; you should change these to match your domain in Server.js's _sendEmail_ function. 
 
 In development, you can run _npm start_ to develop just the FE. Calls to /api/* will be proxied through the _proxy_ field in package.json to a separate instance of the running BE. When you're done developing, build using _npm run build_ to deploy a compiled bundle into /build (which will be served by ExpressJS).
 
