@@ -20,13 +20,14 @@ class TopicsList extends Component {
   selectTopic(name) {
     var jobs = [name+'-job']
     var that = this;
-    $.get('/api/jobs').then( res => { 
+    $.get('/api/jobs?topic='+name).then( res => { 
       that.setState({selectedTopic: name, jobs: res.jobs});
     })
   }
 
   addJob(name) {
     this.setState({ jobs: [...this.state.jobs, name] });
+    
   }
 
   removeJob(removeName) {
