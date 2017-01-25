@@ -7,8 +7,10 @@ Tech stack is a React FE (based on 'create-react-app' template), using a BE of N
 Prereqs: Have MongoDB and NodeJS installed in up-to-date versions. 
 
 $ git clone https://github.com/SellaRafaeli/okpanda-test.git
-$ cd okpanda-test && npm i
-$ POSTMARK=<your-postmark-token> nodemon server.js 
+$ cd okpanda-test && npm i 
+$ POSTMARK=<your-postmark-token> nodemon server.js #run BE
+$ npm start #run FE in dev mod 
+$ npm run build #build FE; now accessible in prod mode from BE 
 
 You may alternatively set your postmark token in .env; also you can run just the FE in dev mode using _npm start_. 
 
