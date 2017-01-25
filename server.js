@@ -8,8 +8,14 @@ var public   = process.cwd() + '/build';
 var postmark = require("postmark");
 var dotenv   = require('dotenv').config()
 
-console.log('postmark: ', process.env.POSTMARK)
-var postmarkEmailClient = new postmark.Client(process.env.POSTMARK);
+var postmarkToken = process.env.POSTMARK;
+console.log('postmark: ', postmarkToken)
+var postmarkEmailClient;
+if (postmarkToken) { 
+  postmarkEmailClient = new postmark.Client(postmarkToken);
+} else {
+  postmarkEmailClient = {sendEmail: ()=>{}}; //mock
+}
  
 app.use(morgan('combined'))
 app.use(express.static(public));
