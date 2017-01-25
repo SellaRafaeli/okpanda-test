@@ -11,8 +11,8 @@ class JobsList extends Component {
     this.removeJob = this.removeJob.bind(this);
   }
 
-  addJob(newName) {
-    this.props.addJob(newName)
+  addJob(msg, payload) {
+    this.props.addJob(msg, payload)
   }
 
   removeJob(_id) {
@@ -23,8 +23,10 @@ class JobsList extends Component {
     console.log('rendering jobs ',this.props.jobs)
     return this.props.jobs.map(job => (
       <Job
-        key={job._id}
-        _id={job._id}
+        key={job.data.uuid}
+        uuid={job.data.uuid}
+        payload={job.data.payload}
+        nextRunAt={job.nextRunAt}
         msg={job.data.msg}
         removeJob={this.removeJob}
       />

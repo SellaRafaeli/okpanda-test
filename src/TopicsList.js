@@ -8,7 +8,7 @@ class TopicsList extends Component {
   constructor(props) {
     super(props);
     this.state  = { 
-      topics: ['topic1', 'topic2', 'topic3'], 
+      topics: ['Students', 'Teachers', 'Admin', 'Advertising'], 
       selectedTopic: '',
       jobs: []
     };
@@ -24,18 +24,24 @@ class TopicsList extends Component {
     });
   }
 
-  addJob(name) {
-    var that = this;
-    $.get('/api/addJobs?topic='+name).then( res => { 
-      this.setState({ jobs: [...that.state.jobs, name] });
+  addJob(msg, payload) {
+    var topic = this.state.selectedTopic;
+    var qs    = `topic=${topic}&msg=${msg}&payload=${payload}`;
+    var that  = this;
+    $.get('/api/addJob?'+qs).then( res => { 
+      that.setState({ jobs: [...that.state.jobs, res] });
+      console.log('jobs are now ',that.state.jobs)
     });
   }
 
   removeJob(removeId) {
-    const filteredJobs = this.state.jobs.filter(job => {
-      return job._id !== removeId;
+    var that = this;
+    $.get('/api/deleteJob?uuid='+removeId).then(()=> {
+      const filteredJobs = that.state.jobs.filter(job => {
+        return job.data.uuid !== removeId;
+      });
+      that.setState({jobs: filteredJobs});
     });
-    this.setState({ jobs: filteredJobs });
   }
 
   renderTopics() {

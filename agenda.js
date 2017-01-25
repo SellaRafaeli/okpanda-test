@@ -7,9 +7,10 @@ agenda.define('sendMsg', function(job, done) {
   console.log('topic: ',job.attrs.data.topic)
   console.log('msg: ',job.attrs.data.msg)
   console.log('payload: ',job.attrs.data.payload)
+  agenda.sendEmail(job.attrs.data)
+  job.remove();
   done();
 });
-
 
 agenda.on('ready', function() {
   agenda.start();
