@@ -31,3 +31,9 @@ In development, you can run _npm start_ to develop just the FE. Calls to /api/* 
 # Notes
 
 As always in exams and throw-away code, the code itself could be improved - further separated into modules, made more robust with internal and external error-checking and tests, prepared for real deployment (e.g. not hard-wiring Mongo to localhost), a normal UI, and so on. However one must remember that throw-away code is meant to be exactly that - thrown away. :) 
+
+# Deployment 
+
+You can view and use an example deployment at <a href="http://okpanda2.herokuapp.com">http://okpanda2.herokuapp.com</a>. This version is hard-wired to send jobs after 5 seconds to foo@mailinator.com. Mailinator is a free, publicly-viewable email service, so you can see the emails sent here: <a href="https://www.mailinator.com/inbox2.jsp?public_to=foo#/#public_maildirdiv">https://www.mailinator.com/inbox2.jsp?public_to=foo#/#public_maildirdiv</a>.
+
+<img src='http://i.imgur.com/rG9Nyo7.png'/>
