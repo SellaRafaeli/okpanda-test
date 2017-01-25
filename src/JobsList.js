@@ -15,30 +15,34 @@ class JobsList extends Component {
     this.props.addJob(newName)
   }
 
-  removeJob(name) {
-    this.props.removeJob(name);
+  removeJob(_id) {
+    this.props.removeJob(_id);
   }
 
   renderJobs() {
-    return this.props.jobs.map(name => (
+    console.log('rendering jobs ',this.props.jobs)
+    return this.props.jobs.map(job => (
       <Job
-        key={name}
-        name={name}
+        key={job._id}
+        _id={job._id}
+        msg={job.data.msg}
         removeJob={this.removeJob}
       />
     ));
   }
 
   renderTopicJobs() {
-    return (<div className="JobsList">
+    return (
+      <div className="JobsList">
         <h2>{this.props.topic} Jobs</h2>
         <JobAdder addJob={this.addJob}/>
         {this.renderJobs()}
-    </div>)
+      </div>
+    )
   }
 
   renderNoTopic() {
-    return (<div>No Topic Selected.</div>);
+    return (<div className="JobsList">No Topic Selected.</div>);
   }
 
   render() {

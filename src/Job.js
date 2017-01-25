@@ -10,13 +10,13 @@ class Job extends Component {
   }
 
   removeJob() {
-    this.props.removeJob(this.props.name);
+    this.props.removeJob(this.props._id);
   }
 
   render() {
     return (
       <div className="Job">
-        Job Name: {this.props.name}!
+        Msg: {this.props.msg}!
         <br/>
         <button onClick={this.frenchify}>Frenchify!</button>
         <br/>

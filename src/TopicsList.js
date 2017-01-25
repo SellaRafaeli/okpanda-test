@@ -18,25 +18,25 @@ class TopicsList extends Component {
   }
 
   selectTopic(name) {
-    var jobs = [name+'-job']
     var that = this;
     $.get('/api/jobs?topic='+name).then( res => { 
       that.setState({selectedTopic: name, jobs: res.jobs});
-    })
+    });
   }
 
   addJob(name) {
-    this.setState({ jobs: [...this.state.jobs, name] });
-    
+    var that = this;
+    $.get('/api/addJobs?topic='+name).then( res => { 
+      this.setState({ jobs: [...that.state.jobs, name] });
+    });
   }
 
-  removeJob(removeName) {
-    const filteredJobs = this.state.jobs.filter(name => {
-      return name !== removeName;
+  removeJob(removeId) {
+    const filteredJobs = this.state.jobs.filter(job => {
+      return job._id !== removeId;
     });
     this.setState({ jobs: filteredJobs });
   }
-
 
   renderTopics() {
     return this.state.topics.map(name => (
@@ -48,8 +48,6 @@ class TopicsList extends Component {
     ));
   }
 
-
-
   render() {
     return (
       <div>
@@ -57,7 +55,6 @@ class TopicsList extends Component {
           <b>selected topic: {this.state.selectedTopic} </b>
           {this.renderTopics()}          
         </div>
-        {this.state.selectedTopic}
         <JobsList topic={this.state.selectedTopic} 
                   jobs={this.state.jobs}
                   addJob={this.addJob}
