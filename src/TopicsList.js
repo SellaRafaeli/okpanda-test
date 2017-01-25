@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Topic from './Topic';
 import JobsList from './JobsList';
 import './TopicsList.css';
+import $ from 'jquery';
 
 class TopicsList extends Component {
   constructor(props) {
@@ -18,7 +19,10 @@ class TopicsList extends Component {
 
   selectTopic(name) {
     var jobs = [name+'-job']
-    this.setState({selectedTopic: name, jobs: jobs})
+    var that = this;
+    $.get('/api/jobs').then( res => { 
+      that.setState({selectedTopic: name, jobs: res.jobs});
+    })
   }
 
   addJob(name) {
