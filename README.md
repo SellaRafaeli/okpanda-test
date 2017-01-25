@@ -1,5 +1,7 @@
 Test project for OKPanda by Sella Rafaeli.
 
+<img src='http://imgur.com/a/O9heF'/>
+
 Tech stack is a React FE (based on 'create-react-app' template), using a BE of Node/ExpressJS and Agenda (based on MongoDB) to schedule background tasks, and Postmark to send emails. 
 
 # Setup 
@@ -18,7 +20,7 @@ $ npm run build #build FE; now accessible in prod mode from BE
 
 You may alternatively set your postmark token in .env; also you can run just the FE in dev mode using _npm start_. 
 
-If you don't set your postmark token, app will work but emails will fail to be sent. 
+If you don't set your postmark token, app will work but emails will not be sent. 
 
 # Usage
 
