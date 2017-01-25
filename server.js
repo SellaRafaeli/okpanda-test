@@ -32,7 +32,7 @@ app.get('/api/addJob', (req,res) => {
   let payload = req.query.payload;
   let uuid    = node_uuid.v1();
   let jobInfo = {topic, msg, payload, uuid}
-  agenda.schedule('in 1 second', 'sendMsg', jobInfo);
+  agenda.schedule('in 1 minute', 'sendMsg', jobInfo);
   res.send({data: jobInfo})
 })
 
